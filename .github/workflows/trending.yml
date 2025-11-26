@@ -1,0 +1,34 @@
+name: Sync GitHub Trending to Feishu
+
+on:
+  schedule:
+    # 每天 UTC 01:00 触发 ≈ 北京时间 09:00
+    - cron: "0 1 * * *"
+  # 手动触发也可以
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run sync script
+        env:
+          FEISHU_APP_ID: ${{ secrets.FEISHU_APP_ID }}
+          FEISHU_APP_SECRET: ${{ secrets.FEISHU_APP_SECRET }}
+          FEISHU_BITABLE_APP_TOKEN: ${{ secrets.FEISHU_BITABLE_APP_TOKEN }}
+          FEISHU_BITABLE_TABLE_ID: ${{ secrets.FEISHU_BITABLE_TABLE_ID }}
+          # 供调用 GitHub API 使用
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: yarn start
