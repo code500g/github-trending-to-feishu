@@ -1,15 +1,104 @@
-.idea
-.vscode
-upload
-*.exe
-*.db
-build
-*.db-journal
-logs
-data
-/web/node_modules
-cmd.md
+# 依赖目录
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 环境变量文件
 .env
-/one-api
-temp
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+
+# 日志文件
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# 运行时数据
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# 覆盖率目录
+coverage/
+*.lcov
+.nyc_output/
+
+# 构建输出
+dist/
+build/
+.out/
+.next/
+.nuxt/
+
+# IDE 和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 操作系统
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# 包管理器
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+shrinkwrap.json
+
+# 缓存目录
+.cache/
+.parcel-cache/
+
+# 临时文件
+*.tmp
+*.temp
+
+# 测试文件
+/test/**/__snapshots__/
+
+# 类型Script
+*.tsbuildinfo
+
+# 可执行文件
+*.exe
+*.out
+*.app
+
+# 数据库文件
+*.db
+*.sqlite
+*.sqlite3
+
+# 证书文件
+*.pem
+*.crt
+*.key
+
+# 备份文件
+*.bak
+*.backup
+
+# 压缩文件
+*.tar.gz
+*.zip
+*.rar
+
+# 其他
+.eslintcache
+.stylelintcache
