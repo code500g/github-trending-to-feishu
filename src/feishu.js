@@ -75,7 +75,7 @@ export async function writeTrendingToBitable(records) {
   const dateTimestamp = dateOnly.getTime();
 
   const bitableRecords = records.map((r) => {
-    const reason = `GitHub Trending 今日第 ${r.rank} 名，今日新增 Star ${r.starsToday}，总 Star ${r.totalStars}，Fork 数 ${r.forks}。`;
+    //const reason = `GitHub Trending 今日第 ${r.rank} 名，今日新增 Star ${r.starsToday}，总 Star ${r.totalStars}，Fork 数 ${r.forks}。`;
 
     return {
       fields: {
@@ -83,7 +83,7 @@ export async function writeTrendingToBitable(records) {
         排名: r.rank,
         项目名称: r.fullName,
         描述: r.description,
-        推荐理由: reason,
+        //推荐理由: reason,
         作者: r.owner,
         GitHub链接: {
           text: r.fullName || r.repoUrl, // 显示在单元格里的文字
